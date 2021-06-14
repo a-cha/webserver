@@ -54,7 +54,7 @@ namespace ft
 		IHeader	*head = getErrorHead(code);
 		IBody	*body = getErrPageBody(code, getCodeDescr(code));
 		head->setHeader("content-length", ft::to_string(body->size()));
-		IResponse *response = new BasicResponse(head, body);
+		IResponse *response = new Response(head, body);
 		return response;
 	}
 

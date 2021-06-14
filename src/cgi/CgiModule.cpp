@@ -234,7 +234,7 @@ namespace ft{
 		if (body && !header->isFieldInHeader("content-length"))
 			header->setHeader("content-length", ft::to_string(body->size()));
 
-		return new BasicResponse(header, body);
+		return new Response(header, body);
 	}
 
 	void CgiModule::getHeadString(std::string &head_part) {

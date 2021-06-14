@@ -94,7 +94,7 @@ namespace ft
 				truncExistingFile(request);
 			}
 		}
-		BasicResponse *response = new BasicResponse(head, NULL);
+		Response *response = new Response(head, NULL);
 		return response;
 	}
 

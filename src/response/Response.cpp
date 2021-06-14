@@ -1,15 +1,16 @@
-#include "BasicResponse.hpp"
+#include <Response.hpp>
+
 namespace ft
 {
 	
 
-	BasicResponse::BasicResponse()
+	Response::Response()
 	{/* Illegal*/}
 
-	BasicResponse::BasicResponse(IHeader *head, IBody *body) : _header(head), _body(body)
+	Response::Response(IHeader *head, IBody *body) : _header(head), _body(body)
 	{}
 
-	BasicResponse::~BasicResponse()
+	Response::~Response()
 	{
 		if (_header)
 			delete _header;
@@ -17,30 +18,30 @@ namespace ft
 			delete _body;
 	}
 
-	BasicResponse::BasicResponse(const BasicResponse &ref)
+	Response::Response(const Response &ref)
 	{
 		(void)ref;
 		throw std:: runtime_error("No implementation");
 	}
 
-	BasicResponse &BasicResponse::operator=(const BasicResponse &ref)
+	Response &Response::operator=(const Response &ref)
 	{
 		(void)ref;
 		throw std:: runtime_error("No implementation");
 		return (*this);
 	}
 
-	IHeader					*BasicResponse::getHeader(void)
+	IHeader					*Response::getHeader(void)
 	{
 		return _header;
 	}
 
-	IBody					*BasicResponse::getBody(void)
+	IBody					*Response::getBody(void)
 	{
 		return _body;
 	}
 
-	std::string				BasicResponse::to_string(void) const
+	std::string				Response::to_string(void) const
 		{
 			if (_header && _body)
 				return	_header->to_string() + _body->to_string();
@@ -50,12 +51,12 @@ namespace ft
 				return "";
 		}
 
-	unsigned long			BasicResponse::size() const
+	unsigned long			Response::size() const
 	{
 		return (_header->size() + _body->size());
 	}
 
-	void BasicResponse::deleteBody()
+	void Response::deleteBody()
 	{
 		if (_body)
 			delete _body;

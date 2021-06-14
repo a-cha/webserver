@@ -1,7 +1,7 @@
 #pragma once
 #include <webserv.hpp>
 #include <Header.hpp>
-#include <BasicResponse.hpp>
+#include <Response.hpp>
 #include <TextBody.hpp>
 #include <defines.hpp>
 

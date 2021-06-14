@@ -1,5 +1,5 @@
 #include <Client.hpp>
-#include <BasicRequest.hpp>
+#include <Request.hpp>
 #include <iostream>
 #include <webserv.hpp>
 namespace ft

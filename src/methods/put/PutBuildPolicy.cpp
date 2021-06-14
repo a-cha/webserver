@@ -34,7 +34,7 @@ namespace ft
 				IHeader *head = checkCommingURI(request);
 				if (head == nullptr)
 					return _e_pager.getErrorPage(404);
-				response = new BasicResponse(head, NULL);
+				response = new Response(head, NULL);
 				return response;
 			}
 			else {

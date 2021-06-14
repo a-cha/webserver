@@ -4,7 +4,7 @@
 #include <iostream>
 #include <HeaderMaker.hpp>
 #include <src/core/Client.hpp>
-#include <BasicRequest.hpp>
+#include <Request.hpp>
 
 
 //	GET / HTTP/1.1\r\nHost: localhost:83\r\nUser-Agent: Go-http-client/1.1\r\nAccept-Encoding: gzip\r\n\r\n

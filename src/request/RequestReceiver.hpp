@@ -26,7 +26,7 @@
 #include <runtime_error.hpp>
 #include <IRequestValidator.hpp>
 
-#include <BasicRequest.hpp>
+#include <Request.hpp>
 #include <Header.hpp>
 
 namespace ft

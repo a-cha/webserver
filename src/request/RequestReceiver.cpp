@@ -203,7 +203,7 @@ namespace ft {
 		client->updateEventTime();
 
 		if (client->getStates() == Client::s_not_begin) {
-			client->setLastRequest(new BasicRequest());
+			client->setLastRequest(new Request());
 			client->getLastRequest()->setPort(_port);
 		}
 		if (client->getStates() != Client::s_body_reading) {

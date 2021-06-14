@@ -1,7 +1,7 @@
 //
 // Created by Gerry Shona on 4/6/21.
 //
-#include <BasicRequest.hpp>
+#include <Request.hpp>
 #include <src/components/TextBody.hpp>
 #include <src/components/Header.hpp>
 #include <src/cgi/CgiModule.hpp>

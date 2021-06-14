@@ -109,7 +109,7 @@ namespace ft
 		body = bodyFromFile(filename);
 		header = buildHeader(200, "OK", body);
 
-		res = new BasicResponse(header, body);
+		res = new Response(header, body);
 
 		return (res);
 	}
@@ -140,7 +140,7 @@ namespace ft
 		if (!body)
 			return _e_pager.getErrorPage(404);
 		IHeader *header = buildHeader(200, "OK", body);
-		BasicResponse *res = new BasicResponse(header, body);
+		Response *res = new Response(header, body);
 		return res;
 	}
 
@@ -242,7 +242,7 @@ namespace ft
 
 		//res = new TextResponse(header->to_string() + body->to_string());
 		//res = new TextResponse(header, body);  // WHAT ??!!!??
-		res = new BasicResponse(header, body);
+		res = new Response(header, body);
 		//delete header;
 		//delete body;
 		return (res);
@@ -388,7 +388,7 @@ namespace ft
 				IBody *body = bodyFromFile(vec[1]);
 				IHeader *head = _e_pager.getErrorHead(std::stoi(code));
 				head->setHeader("content-length", ft::to_string(body->size()));
-				response = new BasicResponse(head, body);
+				response = new Response(head, body);
 			}
 		}
 		return response;

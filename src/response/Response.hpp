@@ -4,17 +4,17 @@
 namespace ft
 {
 
-	class BasicResponse : public IResponse
+	class Response : public IResponse
 	{
 	private:
 		IHeader			*_header;
 		IBody			*_body;
-		BasicResponse();
-		BasicResponse(const BasicResponse &ref);
-		BasicResponse &operator=(const BasicResponse &ref);
+		Response();
+		Response(const Response &ref);
+		Response &operator=(const Response &ref);
 	public:
-		BasicResponse(IHeader *head, IBody *body);
-		virtual ~BasicResponse();
+		Response(IHeader *head, IBody *body);
+		virtual ~Response();
 		
 		IHeader					*getHeader(void);
 		IBody					*getBody(void);

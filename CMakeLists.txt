@@ -8,126 +8,129 @@ INCLUDE_DIRECTORIES(
         src/cgi
         src/components
         src/core
+        src/core/client
+        src/core/dispatcher
+        src/core/server
         src/errors
         src/interfaces
         src/methods
+        src/methods/get
+        src/methods/post
+        src/methods/put
+        src/methods/head
         src/parsing
         src/request
         src/response
         src/utils
 )
 
-SET(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra ") # -Werror
+SET(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra -Werror")
 add_definitions(${GCC_COVERAGE_COMPILE_FLAGS})
 
-add_executable(
-        webserv
-        src/components/ABody.cpp
-        src/components/ABody.hpp
-        src/response/ABuildPolicy.cpp
-        src/response/ABuildPolicy.hpp
-        src/request/BasicRequest.cpp
-        src/request/BasicRequest.hpp
-        src/response/BasicResponse.cpp
-        src/response/BasicResponse.hpp
-        src/core/Client.cpp
-        src/core/Client.hpp
-        src/parsing/ConfigParser.cpp
-        src/parsing/ConfigParser.hpp
-        src/utils/defines.hpp
-        src/core/Dispatcher.cpp
-        src/core/Dispatcher.hpp
-        src/core/DispatcherEventArgs.hpp
-        src/errors/ErrorPager.cpp
-        src/errors/ErrorPager.hpp
-        src/utils/TimeMachine.cpp
-        src/utils/TimeMachine.hpp
-        src/components/FileBody.cpp
-        src/components/FileBody.hpp
-        src/utils/FileManager.cpp
-        src/utils/FileManager.hpp
-        src/request/GetBuildPolicy.cpp
-        src/request/GetBuildPolicy.hpp
-        src/components/Header.cpp
-        src/components/Header.hpp
-        src/interfaces/IBody.hpp
-        src/interfaces/ICgiController.hpp
-        src/interfaces/IClient.hpp
-        src/interfaces/IFileManager.hpp
-        src/interfaces/IHeader.hpp
-        src/interfaces/ILogger.hpp
-        src/interfaces/ILoggerEvent.hpp
-        src/interfaces/IRequest.hpp
-        src/interfaces/IRequestReciever.hpp
-        src/interfaces/IRequestValidator.hpp
-        src/interfaces/IResponse.hpp
-        src/interfaces/IResponseBuilder.hpp
-        src/interfaces/IResponseSender.hpp
-        src/interfaces/IServer.hpp
-        src/interfaces/ITimeMachine.hpp
-        src/parsing/LocationInit.cpp
-        src/parsing/LocationInit.hpp
-
+add_executable( webserv
+        src/methods/post/PostBuildPolicy.hpp
+        src/methods/post/PostBuildPolicy.cpp
+        src/methods/ABuildPolicy.hpp
+        src/methods/put/PutBuildPolicy.hpp
+        src/methods/put/PutBuildPolicy.cpp
+        src/methods/get/GetBuildPolicy.hpp
+        src/methods/get/GetBuildPolicy.cpp
+        src/methods/head/HeadBuildPolicy.cpp
+        src/methods/head/HeadBuildPolicy.hpp
+        src/methods/ABuildPolicy.cpp
+        src/core/dispatcher/DispatcherEventArgs.hpp
+        src/core/dispatcher/Dispatcher.hpp
+        src/core/dispatcher/Dispatcher.cpp
+        src/core/server/Server.hpp
+        src/core/server/ServerInit.hpp
+        src/core/server/ServerInit.cpp
+        src/core/server/Server.cpp
+        src/core/client/Client.cpp
+        src/core/client/Client.hpp
         src/core/main.cpp
-
-        src/utils/OutOperators.cpp
-        src/methods/PostBuildPolicy.cpp
-        src/methods/PostBuildPolicy.hpp
-        src/methods/PutBuildPolicy.cpp
-        src/methods/PutBuildPolicy.hpp
-        src/request/Request.cpp
-        src/request/Request.hpp
-        src/request/RequestReceiver.cpp
-        src/request/RequestReceiver.hpp
-        src/response/ResponseBuilder.cpp
-        src/response/ResponseBuilder.hpp
-        src/response/ResponseSender.cpp
         src/response/ResponseSender.hpp
-        src/utils/runtime_error.cpp
-        src/utils/runtime_error.hpp
-        src/core/Server.cpp
-        src/core/Server.hpp
-        src/core/ServerInit.cpp
-        src/core/ServerInit.hpp
-        src/components/TextBody.cpp
-        src/components/TextBody.hpp
-        src/response/TextResponse.cpp
-        src/response/TextResponse.hpp
-        src/utils/TokenPool.cpp
-        src/utils/TokenPool.hpp
+        src/response/Response.hpp
+        src/response/ResponseBuilder.hpp
+        src/response/HeaderMaker.cpp
+#        src/response/TextResponse.hpp
+#        src/response/TextResponse.cpp
+        src/response/ResponseBuilder.cpp
+        src/response/HeaderMaker.hpp
+        src/response/ResponseSender.cpp
+        src/response/Response.cpp
+        src/utils/isParsedHeader.cpp
+        src/utils/get_time_udiff.cpp
+        src/utils/defines.hpp
+        src/utils/splitString.cpp
+        src/utils/Utils.cpp
+        src/utils/timeFormatted.cpp
+        src/utils/isNumber.cpp
         src/utils/ft_memcpy.cpp
-        src/utils/ft_strlen.cpp
-        src/utils/getCodeDescr.cpp
+        src/utils/Base64.cpp
+        src/utils/OutOperators.cpp
+        src/utils/TimeMachine.cpp
+        src/utils/ft_strcmp.cpp
+        src/utils/TokenPool.hpp
+        src/utils/FileManager.cpp
         src/utils/getFileExtension.cpp
+        src/utils/fdToString.cpp
+        src/utils/getCodeDescr.cpp
+        src/utils/runtime_error.cpp
+        src/utils/TimeMachine.hpp
+        src/utils/TokenPool.cpp
+        src/utils/getFileSize.cpp
+        src/utils/webserv.hpp
+        src/utils/FileManager.hpp
+        src/utils/ft_strlen.cpp
+        src/utils/runtime_error.hpp
         src/utils/getMethod.cpp
         src/utils/to_string.cpp
-        src/utils/Utils.cpp
         src/utils/Utils.hpp
-        src/utils/webserv.hpp
-        src/request/BodyReader.cpp
-        src/request/BodyReader.hpp
-        src/utils/isNumber.cpp
-        src/response/HeaderMaker.cpp
-        src/response/HeaderMaker.hpp
         src/utils/strToLower.cpp
-        src/utils/fdToString.cpp
-        src/utils/ft_strcmp.cpp
-        src/utils/get_time_udiff.cpp
-        src/utils/splitString.cpp
-        src/interfaces/IIndexModule.hpp
-        src/autoindex/IndexModule.cpp
-        src/autoindex/IndexModule.hpp
-        src/utils/timeFormatted.cpp
-        src/response/HeadBuildPolicy.hpp
-        src/response/HeadBuildPolicy.cpp
-
         src/cgi/Environment.cpp
-        src/cgi/Environment.hpp
         src/cgi/CgiModule.cpp
-        src/utils/getFileSize.cpp
-        src/utils/isParsedHeader.cpp
+        src/cgi/CgiModule.hpp
+        src/cgi/Environment.hpp
+        src/components/FileBody.cpp
+        src/components/TextBody.cpp
+        src/components/Header.cpp
+        src/components/ABody.cpp
+        src/components/FileBody.hpp
+        src/components/TextBody.hpp
+        src/components/Header.hpp
+        src/components/ABody.hpp
+        src/request/Request.cpp
+        src/request/RequestReceiver.hpp
+        src/request/BodyReader.hpp
+#        src/request/Request.cpp
+#        src/request/Request.hpp
+        src/request/Request.hpp
+        src/request/RequestReceiver.cpp
+        src/request/BodyReader.cpp
+        src/errors/ErrorPager.hpp
+        src/errors/ErrorPager.cpp
+        src/parsing/LocationInit.cpp
+        src/parsing/ConfigParser.hpp
+        src/parsing/ConfigParser.cpp
+        src/parsing/LocationInit.hpp
         src/authorization/Authorization.cpp
         src/authorization/Authorization.hpp
-        src/utils/Base64.cpp
+        src/autoindex/IndexModule.hpp
+        src/autoindex/IndexModule.cpp
+        src/interfaces/ILogger.hpp
+        src/interfaces/ICgiController.hpp
+        src/interfaces/ILoggerEvent.hpp
+        src/interfaces/IServer.hpp
+        src/interfaces/IResponseSender.hpp
+        src/interfaces/IResponseBuilder.hpp
+        src/interfaces/IIndexModule.hpp
+        src/interfaces/IHeader.hpp
+        src/interfaces/IRequestReciever.hpp
+        src/interfaces/IBody.hpp
+        src/interfaces/IResponse.hpp
+        src/interfaces/IRequestValidator.hpp
+        src/interfaces/IFileManager.hpp
+        src/interfaces/IRequest.hpp
+        src/interfaces/IClient.hpp
+        src/interfaces/ITimeMachine.hpp
 )
-

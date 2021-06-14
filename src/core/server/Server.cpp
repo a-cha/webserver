@@ -202,7 +202,7 @@ namespace ft
 //			std::cout << "CLIENT DIFF: " << diff <<"\n";
 			if ( diff > CLIENT_TIMEOUT_MICROS) {
 				//if (!client->getLastRequest())
-				//	client->setLastRequest(new BasicRequest());
+				//	client->setLastRequest(new Request());
 				//if (!client->getLastRequest()->getHeader())
 				//	client->getLastRequest()->setHeader(new Header(request));
 				//client->getLastRequest()->getHeader()->makeInvalid();
