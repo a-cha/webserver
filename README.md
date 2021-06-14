@@ -17,7 +17,7 @@ This server was implemented as a reference to Nginx HTTP 1.1 compliant.
 
 ## Usage
 
-Run `make` inside the repository's directory to build `webserv` binary. 
+Run `make` inside the repository's directory to build `webserv` binary. You can also use `CMakeLists.txt` file.
 
 Program needs the path to configuration file as an argument (example in **conf** directory).
 
