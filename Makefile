@@ -5,7 +5,6 @@ CFLAGS= -g -Wall -Wextra -Werror
 # Directories
 SRC_DIR= ./src/
 SRC_SUBDIRS= $(shell ls -1p $(SRC_DIR) )
-SRC_FULL_DIRS := $(addsuffix :, $(addprefix $(SRC_DIR), $(SRC_SUBDIRS)))
 HPP_DIRS= $(addprefix $(SRC_DIR), $(SRC_SUBDIRS))
 OBJ_DIR= ./obj/
 
@@ -19,26 +18,34 @@ DEP= $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.d))
 
 LINK= $(addprefix -I, $(HPP_DIRS))
 
+# Colors
+BOLD= \033[1m
+GREEN= \033[32m
+RED= \033[31m
+BLUE= \033[36m
+STD= \033[0m
+
 all: $(NAME)
+	@echo "$(BOLD)Binary file $(BLUE)$(NAME) $(STD)$(BOLD)$(GREEN)created$(STD)"
 
-$(NAME): $(OBJ_DIR) $(OBJ)
-	$(CC) $(CFLAGS) $(LINK) -o $(NAME) $(OBJ)
-
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(LINK) -o $@ $^
 
 -include $(DEP)
 
-VPATH = $(SRC_FULL_DIRS)
+VPATH = $(addsuffix :, $(addprefix $(SRC_DIR), $(SRC_SUBDIRS)))
 
 $(OBJ_DIR)%.o: %.cpp
+	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(LINK) -c $< -o $@ -MMD
 
 clean:
-	rm -f $(OBJ) $(DEP)
+	@rm -rf $(OBJ_DIR)
+	@echo "$(BOLD)Object files$(RED) deleted$(STD)"
 
 fclean: clean
-	rm -rf $(NAME);
+	@rm -f $(NAME)
+	@echo "$(BOLD)Binary $(BLUE)$(NAME)$(RED) deleted$(STD)"
 
 re: fclean all
 
