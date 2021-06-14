@@ -91,7 +91,7 @@ namespace ft
 		getcwd(dir, MAXPATHLEN);
 		tmp = dir;
 		tmp = tmp.substr(0, tmp.rfind('/'));
-		tmp += "/webserv/utils/mimi_types.txt";
+		tmp += "/src/utils/mimi_types.txt";
 		std::ifstream fileTypes(tmp);
 		if (!fileTypes)
 			throw CannotOpenFile();
