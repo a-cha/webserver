@@ -1,6 +1,6 @@
 #include <RequestReceiver.hpp>
 #include <webserv.hpp>
-#include <src/components/Header.hpp>
+#include <Header.hpp>
 #include <HeaderMaker.hpp>
 
 namespace ft {

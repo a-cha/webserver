@@ -110,6 +110,7 @@ int ft::BodyReader::readBody() {
 		case s_block: return(readChunk()); break;
 		case s_end: return 0; break;
 		case s_remains: throw ft::runtime_error("WE SHOULDN\'N BE HERE\n"); break;
+        default: break;
 	}
 	return 0;
 }

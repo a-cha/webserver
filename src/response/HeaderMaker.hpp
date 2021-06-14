@@ -5,7 +5,7 @@
 #ifndef WEBSERV_HEADERMAKER_HPP
 #define WEBSERV_HEADERMAKER_HPP
 
-#include <src/core/Client.hpp>
+#include <Client.hpp>
 #include <webserv.hpp>
 
 #include <string>

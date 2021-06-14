@@ -7,7 +7,7 @@
 #include <IResponseSender.hpp>
 #include <IResponseBuilder.hpp>
 #include <ResponseBuilder.hpp>
-#include <src/core/DispatcherEventArgs.hpp>
+#include <DispatcherEventArgs.hpp>
 #include <Request.hpp>
 
 #include <sys/socket.h>
@@ -34,7 +34,7 @@ namespace ft
 {
 	class Dispatcher;
 }
-#include <src/core/Dispatcher.hpp>
+#include <Dispatcher.hpp>
 namespace ft
 {
 	class Server

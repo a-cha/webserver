@@ -1,4 +1,4 @@
-#include <src/core/Server.hpp>
+#include <Server.hpp>
 #include <ConfigParser.hpp>
 
 #include <signal.h>

@@ -9,7 +9,7 @@
 #include <fcntl.h>
 #include <list>
 #include <map>
-#include <src/core/ServerInit.hpp>
+#include <ServerInit.hpp>
 #include <TokenPool.hpp>
 #include <Utils.hpp>
 #include <webserv.hpp>

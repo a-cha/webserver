@@ -1,4 +1,4 @@
-#include <src/methods/PutBuildPolicy.hpp>
+#include <PutBuildPolicy.hpp>
 
 namespace ft
 {

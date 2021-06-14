@@ -1,15 +1,15 @@
 #pragma once
 #include <IRequest.hpp>
 #include <IResponse.hpp>
-#include <src/cgi/Environment.hpp>
-#include <src/errors/ErrorPager.hpp>
+#include <Environment.hpp>
+#include <ErrorPager.hpp>
 #include <unistd.h>
 #include <fcntl.h>
-#include <src/components/FileBody.hpp>
-#include <src/components/TextBody.hpp>
+#include <FileBody.hpp>
+#include <TextBody.hpp>
 #include <iostream>
 #include <HeaderMaker.hpp>
-#include <src/components/Header.hpp>
+#include <Header.hpp>
 
 #define TMP_IN			"tmp_cgi_in"
 #define TMP_OUT			"tmp_cgi_out"

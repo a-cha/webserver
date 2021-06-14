@@ -3,11 +3,11 @@
 #include <ABuildPolicy.hpp>
 
 #include <GetBuildPolicy.hpp>
-#include <src/methods/PostBuildPolicy.hpp>
-#include <src/methods/PutBuildPolicy.hpp>
+#include <PostBuildPolicy.hpp>
+#include <PutBuildPolicy.hpp>
 #include <HeadBuildPolicy.hpp>
 //Config List
-#include <src/core/ServerInit.hpp>
+#include <ServerInit.hpp>
 #include <defines.hpp>
 #include <map>
 

@@ -1,48 +1,38 @@
-
+# Compilation
 CC= clang++
 CFLAGS= -g -Wall -Wextra -Werror
 
-NAME=webserv
+# Directories
+SRC_DIR= ./src/
+SRC_SUBDIRS= $(shell ls -1p $(SRC_DIR) )
+SRC_FULL_DIRS := $(addsuffix :, $(addprefix $(SRC_DIR), $(SRC_SUBDIRS)))
+HPP_DIRS= $(addprefix $(SRC_DIR), $(SRC_SUBDIRS))
+OBJ_DIR= ./obj/
 
-SRC_DIR=./
-UTILS_DIR=$(SRC_DIR)utils
-OBJ_DIR=obj/
-HPP_DIRS=./ ./interfaces/
+# Sources
+NAME= webserv
+SRC_FILES= $(shell ls -R -1 $(SRC_DIR) | grep \.cpp )
+HPP_FILES= $(shell ls -R -1 $(HPP_DIRS) | grep \.hpp )
 
-SRC_FILES=$(shell ls -1 $(SRC_DIR) | grep \.cpp )
-UTILS_FILES=$(shell ls -1 $(UTILS_DIR) | grep \.cpp)
-HPP= $(shell ls -1 | grep \.hpp ) $(addprefix interfaces/, $(shell ls -1 interfaces | grep \.hpp ))
+OBJ= $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
+DEP= $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.d))
 
-SRC=$(addprefix $(SRC_DIR), $(SRC_FILES))
-UTILS= $(addprefix utils/, $(UTILS_FILES))
-OBJ=$(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o)) $(addprefix $(OBJ_DIR), $(UTILS_FILES:.cpp=.o))
-DEP=$(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.d)) $(addprefix $(OBJ_DIR), $(UTILS_FILES:.cpp=.d))
-
-LINK=$(addprefix -I, $(HPP_DIRS))
+LINK= $(addprefix -I, $(HPP_DIRS))
 
 all: $(NAME)
 
-deb:
-	@echo "SOURCES " $(SRC_FILES) "\n"
-	@echo "UTILS " $(UTILS) "\n"
-	@echo "HEADERS " $(HPP) "\n"
-	@echo "SRC" $(SRC) "\n"
-	@echo "OBJ" $(OBJ) "\n"
-	@echo "DEP" $(DEP) "\n"
+$(NAME): $(OBJ_DIR) $(OBJ)
+	$(CC) $(CFLAGS) $(LINK) -o $(NAME) $(OBJ)
 
-$(OBJ_DIR) : 
+$(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 -include $(DEP)
 
-$(OBJ_DIR)%.o: src/utils
-	$(CC) $(CFLAGS) $(LINK) -c $< -o $@
+VPATH = $(SRC_FULL_DIRS)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
-	$(CC) $(CFLAGS) $(LINK) -c $< -o $@
-
-$(NAME): $(OBJ_DIR) $(OBJ)
-	$(CC) $(CFLAGS) $(LINK) -o $(NAME) $(OBJ)
+$(OBJ_DIR)%.o: %.cpp
+	$(CC) $(CFLAGS) $(LINK) -c $< -o $@ -MMD
 
 clean:
 	rm -f $(OBJ) $(DEP)
@@ -51,3 +41,13 @@ fclean: clean
 	rm -rf $(NAME);
 
 re: fclean all
+
+deb:
+	@echo "SRC_SUBDIRS " $(SRC_SUBDIRS) "\n"
+	@echo "HPP_DIRS " $(HPP_DIRS) "\n"
+	@echo "SRC_FILES " $(SRC_FILES) "\n"
+	@echo "HPP_FILES " $(HPP_FILES) "\n"
+	@echo "OBJ" $(OBJ) "\n"
+	@echo "DEP" $(DEP) "\n"
+
+.PHONY: all clean fclean re

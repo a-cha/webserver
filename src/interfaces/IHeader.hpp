@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <webserv.hpp>
-#include <src/cgi/Environment.hpp>
+#include <Environment.hpp>
 
 namespace ft
 {

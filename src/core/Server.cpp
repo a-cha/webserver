@@ -1,4 +1,4 @@
-#include <src/core/Server.hpp>
+#include <Server.hpp>
 #include <runtime_error.hpp>
 namespace ft
 {

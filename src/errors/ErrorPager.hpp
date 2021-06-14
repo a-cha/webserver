@@ -1,8 +1,8 @@
 #pragma once
 #include <webserv.hpp>
-#include <src/components/Header.hpp>
+#include <Header.hpp>
 #include <BasicResponse.hpp>
-#include <src/components/TextBody.hpp>
+#include <TextBody.hpp>
 #include <defines.hpp>
 
 namespace ft

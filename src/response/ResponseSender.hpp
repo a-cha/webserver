@@ -5,9 +5,9 @@ namespace ft {
 	class Dispatcher;
 }
 
-#include <src/core/Dispatcher.hpp>
-#include <src/components/TextBody.hpp>
-#include <src/components/FileBody.hpp>
+#include <Dispatcher.hpp>
+#include <TextBody.hpp>
+#include <FileBody.hpp>
 
 #include <defines.hpp>
 

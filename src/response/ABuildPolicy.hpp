@@ -8,17 +8,17 @@
 #include <FileManager.hpp>
 
 #include "TextResponse.hpp"
-#include <src/components/TextBody.hpp>
+#include <TextBody.hpp>
 #include <webserv.hpp>
 #include <iostream>
 #include <fcntl.h>
 #include <unistd.h>
-#include <src/components/Header.hpp>
+#include <Header.hpp>
 #include <stdlib.h>
-#include <src/components/FileBody.hpp>
-#include <src/errors/ErrorPager.hpp>
-#include <src/core/ServerInit.hpp>
-#include <src/cgi/CgiModule.hpp>
+#include <FileBody.hpp>
+#include <ErrorPager.hpp>
+#include <ServerInit.hpp>
+#include <CgiModule.hpp>
 
 #include <defines.hpp>
 #include <list>
@@ -26,7 +26,7 @@
 
 #include <Utils.hpp>
 #include <webserv.hpp>
-#include <src/autoindex/IndexModule.hpp>
+#include <IndexModule.hpp>
 
 namespace ft
 {

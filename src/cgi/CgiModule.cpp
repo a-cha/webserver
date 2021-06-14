@@ -1,4 +1,4 @@
-#include <src/cgi/CgiModule.hpp>
+#include <CgiModule.hpp>
 
 namespace ft{
 	int CgiModule::_max_id = 0;

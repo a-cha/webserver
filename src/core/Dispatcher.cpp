@@ -1,5 +1,5 @@
-#include <src/core/Dispatcher.hpp>
-#include <src/core/Server.hpp>
+#include <Dispatcher.hpp>
+#include <Server.hpp>
 
 namespace ft
 {

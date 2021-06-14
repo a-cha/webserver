@@ -1,4 +1,4 @@
-#include <src/errors/ErrorPager.hpp>
+#include <ErrorPager.hpp>
 
 namespace ft
 {

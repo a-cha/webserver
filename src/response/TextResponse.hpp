@@ -1,7 +1,7 @@
 #pragma once
 #include <IResponse.hpp>
 #include <string>
-#include <src/components/TextBody.hpp>
+#include <TextBody.hpp>
 #include <runtime_error.hpp>
 
 namespace ft

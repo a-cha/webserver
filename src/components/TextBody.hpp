@@ -1,5 +1,5 @@
 #pragma once
-#include <src/components/ABody.hpp>
+#include <ABody.hpp>
 #include <runtime_error.hpp>
 namespace ft
 {

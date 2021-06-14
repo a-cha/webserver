@@ -11,7 +11,7 @@
 #include <runtime_error.hpp>
 #include <errno.h>
 #include <fcntl.h>
-#include <src/components/FileBody.hpp>
+#include <FileBody.hpp>
 #include <list>
 #define  LEN_CHUNKED -1
 //#define  B_READER_BUFF_SIZE

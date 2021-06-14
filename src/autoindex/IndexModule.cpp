@@ -2,9 +2,9 @@
 // Created by Skipjack Adolph on 4/5/21.
 //
 
-#include <src/autoindex/IndexModule.hpp>
-#include <src/components/TextBody.hpp>
-#include <src/components/FileBody.hpp>
+#include <IndexModule.hpp>
+#include <TextBody.hpp>
+#include <FileBody.hpp>
 #include <FileManager.hpp>
 #include <webserv.hpp>
 #include <defines.hpp>

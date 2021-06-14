@@ -9,11 +9,11 @@ namespace ft
 {
 class Server;
 }
-#include <src/core/Server.hpp>
+#include <Server.hpp>
 #include <webserv.hpp>
 #include <stack>
 #include <RequestReceiver.hpp>
-#include <src/core/DispatcherEventArgs.hpp>
+#include <DispatcherEventArgs.hpp>
 #include <BodyReader.hpp>
 #include <defines.hpp>
 

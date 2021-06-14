@@ -2,7 +2,7 @@
 #include <IRequestReciever.hpp>
 #include <IResponseSender.hpp>
 #include <Request.hpp>
-#include <src/core/Client.hpp>
+#include <Client.hpp>
 #include <webserv.hpp>
 
 #include <exception>
@@ -27,7 +27,7 @@
 #include <IRequestValidator.hpp>
 
 #include <BasicRequest.hpp>
-#include <src/components/Header.hpp>
+#include <Header.hpp>
 
 namespace ft
 {

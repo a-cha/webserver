@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <src/components/TextBody.hpp>
+#include <TextBody.hpp>
 #include <LocationInit.hpp>
 #include <Request.hpp>
 

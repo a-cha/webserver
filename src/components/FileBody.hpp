@@ -1,5 +1,5 @@
 #pragma once
-#include <src/components/ABody.hpp>
+#include <ABody.hpp>
 #include <unistd.h>
 #include <fstream>
 #include <sstream>

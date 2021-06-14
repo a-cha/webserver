@@ -1,4 +1,4 @@
-#include <src/components/TextBody.hpp>
+#include <TextBody.hpp>
 
 namespace ft
 {
