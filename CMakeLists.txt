@@ -2,7 +2,20 @@ cmake_minimum_required(VERSION 3.17)
 project(webserv)
 set(CMAKE_CXX_STANDARD 98)
 
-INCLUDE_DIRECTORIES(src/interfaces src/authorization src/parsing src/request src/response src/utils src/core ./)
+INCLUDE_DIRECTORIES(
+        src/authorization
+        src/autoindex
+        src/cgi
+        src/components
+        src/core
+        src/errors
+        src/interfaces
+        src/methods
+        src/parsing
+        src/request
+        src/response
+        src/utils
+)
 
 SET(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Wextra ") # -Werror
 add_definitions(${GCC_COVERAGE_COMPILE_FLAGS})
