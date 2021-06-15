@@ -90,11 +90,15 @@ namespace ft
 
 		getcwd(dir, MAXPATHLEN);
 		tmp = dir;
-		tmp = tmp.substr(0, tmp.rfind('/'));
+
+        if (tmp.find("cmake-build-debug") != std::string::npos)
+            tmp = tmp.substr(0, tmp.rfind('/'));
 		tmp += "/src/utils/mimi_types.txt";
+
 		std::ifstream fileTypes(tmp);
 		if (!fileTypes)
 			throw CannotOpenFile();
+
 		extension = filename.substr(filename.find('.') + 1);
 		while (std::getline(fileTypes, buf)) {
 			tmp = buf.substr(buf.find(' ') + 1);
@@ -104,7 +108,7 @@ namespace ft
 			}
 		}
 		fileTypes.close();
-		//throw NoSuchType();
+
 		return "";
 	}
 
