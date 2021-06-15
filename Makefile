@@ -40,6 +40,7 @@ $(OBJ_DIR)%.o: %.cpp
 
 clean:
 	@rm -rf $(OBJ_DIR)
+	@rm -rf deb
 	@echo "$(BOLD)Object files$(RED) deleted$(STD)"
 
 fclean: clean
@@ -47,9 +48,6 @@ fclean: clean
 	@echo "$(BOLD)Binary $(BLUE)$(NAME)$(RED) deleted$(STD)"
 
 re: fclean all
-
-d:
-	@echo $(addsuffix :, $(SRC_SUBDIRS))
 
 deb:
 	mkdir -p deb
