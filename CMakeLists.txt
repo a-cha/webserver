@@ -20,7 +20,10 @@ INCLUDE_DIRECTORIES(
         src/methods/head
         src/parsing
         src/request
+        src/request/receive
         src/response
+        src/response/build
+        src/response/send
         src/utils
 )
 
@@ -48,16 +51,14 @@ add_executable( webserv
         src/core/client/Client.cpp
         src/core/client/Client.hpp
         src/core/main.cpp
-        src/response/ResponseSender.hpp
         src/response/Response.hpp
-        src/response/ResponseBuilder.hpp
-        src/response/HeaderMaker.cpp
-#        src/response/TextResponse.hpp
-#        src/response/TextResponse.cpp
-        src/response/ResponseBuilder.cpp
-        src/response/HeaderMaker.hpp
-        src/response/ResponseSender.cpp
         src/response/Response.cpp
+        src/response/build/ResponseBuilder.hpp
+        src/response/build/HeaderMaker.cpp
+        src/response/build/ResponseBuilder.cpp
+        src/response/build/HeaderMaker.hpp
+        src/response/send/ResponseSender.hpp
+        src/response/send/ResponseSender.cpp
         src/utils/isParsedHeader.cpp
         src/utils/get_time_udiff.cpp
         src/utils/defines.hpp
@@ -100,13 +101,11 @@ add_executable( webserv
         src/components/Header.hpp
         src/components/ABody.hpp
         src/request/Request.cpp
-        src/request/RequestReceiver.hpp
-        src/request/BodyReader.hpp
-#        src/request/Request.cpp
-#        src/request/Request.hpp
+        src/request/receive/RequestReceiver.hpp
+        src/request/receive/BodyReader.hpp
+        src/request/receive/RequestReceiver.cpp
+        src/request/receive/BodyReader.cpp
         src/request/Request.hpp
-        src/request/RequestReceiver.cpp
-        src/request/BodyReader.cpp
         src/errors/ErrorPager.hpp
         src/errors/ErrorPager.cpp
         src/parsing/LocationInit.cpp
