@@ -6,7 +6,8 @@ INCLUDE_DIRECTORIES(
         src/authorization
         src/autoindex
         src/cgi
-        src/components
+        src/components/body
+        src/components/header
         src/core
         src/core/client
         src/core/dispatcher
@@ -92,14 +93,14 @@ add_executable( webserv
         src/cgi/CgiModule.cpp
         src/cgi/CgiModule.hpp
         src/cgi/Environment.hpp
-        src/components/FileBody.cpp
-        src/components/TextBody.cpp
-        src/components/Header.cpp
-        src/components/ABody.cpp
-        src/components/FileBody.hpp
-        src/components/TextBody.hpp
-        src/components/Header.hpp
-        src/components/ABody.hpp
+        src/components/body/FileBody.cpp
+        src/components/body/TextBody.cpp
+        src/components/body/ABody.cpp
+        src/components/body/FileBody.hpp
+        src/components/body/TextBody.hpp
+        src/components/body/ABody.hpp
+        src/components/header/Header.cpp
+        src/components/header/Header.hpp
         src/request/Request.cpp
         src/request/receive/RequestReceiver.hpp
         src/request/receive/BodyReader.hpp
