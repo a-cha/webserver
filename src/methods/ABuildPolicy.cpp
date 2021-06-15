@@ -235,7 +235,7 @@ namespace ft
 		IHeader *header;
 
 #ifdef DEBUG
-		std::cout << "BUILDER: BUILD FROM FILE: [" << filename << "]\n";
+//		std::cout << "BUILDER: BUILD FROM FILE: [" << filename << "]\n";
 #endif
 		body = bodyFromFile(correct_path);
 		header = buildHeader(200, "OK", body);
