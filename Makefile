@@ -4,8 +4,8 @@ CFLAGS= -g -Wall -Wextra -Werror
 
 # Directories
 SRC_DIR= ./src/
-SRC_SUBDIRS= $(shell ls -1p $(SRC_DIR) )
-HPP_DIRS= $(addprefix $(SRC_DIR), $(SRC_SUBDIRS))
+SRC_SUBDIRS= $(shell ls -1d $(SRC_DIR)*/*/ ) $(shell ls -1d $(SRC_DIR)*/ )
+HPP_DIRS= $(SRC_SUBDIRS)
 OBJ_DIR= ./obj/
 
 # Sources
@@ -32,7 +32,7 @@ $(NAME): $(OBJ)
 
 -include $(DEP)
 
-VPATH = $(addsuffix :, $(addprefix $(SRC_DIR), $(SRC_SUBDIRS)))
+VPATH = $(addsuffix :, $(SRC_SUBDIRS))
 
 $(OBJ_DIR)%.o: %.cpp
 	@mkdir -p $(OBJ_DIR)
@@ -48,12 +48,16 @@ fclean: clean
 
 re: fclean all
 
+d:
+	@echo $(addsuffix :, $(SRC_SUBDIRS))
+
 deb:
-	@echo "SRC_SUBDIRS " $(SRC_SUBDIRS) "\n"
-	@echo "HPP_DIRS " $(HPP_DIRS) "\n"
-	@echo "SRC_FILES " $(SRC_FILES) "\n"
-	@echo "HPP_FILES " $(HPP_FILES) "\n"
-	@echo "OBJ" $(OBJ) "\n"
-	@echo "DEP" $(DEP) "\n"
+	mkdir -p deb
+	@echo "SRC_SUBDIRS " $(SRC_SUBDIRS) > deb/SRC_SUBDIRS "\n"
+	@echo "HPP_DIRS " $(HPP_DIRS) > deb/HPP_DIRS "\n"
+	@echo "SRC_FILES " $(SRC_FILES) > deb/SRC_FILES "\n"
+	@echo "HPP_FILES " $(HPP_FILES) > deb/HPP_FILES "\n"
+	@echo "OBJ" $(OBJ) > deb/OBJ "\n"
+	@echo "DEP" $(DEP) > deb/DEP "\n"
 
 .PHONY: all clean fclean re
